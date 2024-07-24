@@ -1,0 +1,37 @@
+.file-thumbnail-footer .file-upload-indicator{
+    display: none !important;
+}
+
+.file-footer-buttons{
+    display: flex;
+    gap: 4px;
+}
+
+.list-Instruntion{
+    width: 500px;
+}
+.fileinput-upload{
+    background-color: rgb(150, 94, 233) !important;
+    color: white !important;
+}
+.fileinput-remove-button{
+    background-color: rgb(239, 84, 84) !important;
+    color: white !important;
+}
+.btn-file{
+    background-color: rgb(94, 184, 233) !important;
+    color: white !important;
+}
+
+.search-Result{
+    width:90vw;
+}
+
+.search{
+    border: none;
+    background-color: rgb(150, 94, 233) !important;
+    color: white !important;
+    padding: 15px;
+    border-radius: 8px;
+    width: 170px;
+}
