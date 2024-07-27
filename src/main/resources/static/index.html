@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> End User webVeiw page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 1.243rem;
+            background-color: #F0F0FA;
+            font-family: 'Open Sans', sans-serif;
+            height: 100%;
+        }
+
+        main {
+            height: 100%;
+            display: table;
+            margin: 0 auto;
+        }
+
+        .user-info {
+            max-width: 393px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 1rem;
+            /* border: solid 1px #1a1a1a; */
+            position: relative;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .user-info>h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0;
+        }
+
+        .user-info>p {
+            font-size: 0.89rem;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .user-info>.btn-user {
+            background: #FF6083;
+            border-radius: 6px;
+            border: none;
+            width: 100%;
+            font-size: 1.4rem;
+            color: #fff;
+            padding: 1rem 0;
+            position: relative;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-primary {
+            color: #FF6083;
+        }
+
+        .text-light {
+            color: #848484;
+        }
+
+        .float-end {
+            float: right;
+        }
+
+        .float-start {
+            float: left;
+        }
+
+        .user-info>.list-item {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .user-info>.list-item img {
+            margin-right: 1rem;
+            line-height: normal;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .user-info>.list-item>li {
+            background-color: #ffffff;
+            padding: 1rem;
+            border: solid 1px #dddddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .user-info>.list-item>li>small {
+            font-size: 0.897rem;
+            color: #848484;
+            margin-top: 5px;
+            margin-left: auto;
+        }
+
+        .user-info>.list-item>li>input {
+            line-height: 26px;
+            border: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        /* Camera */
+        #videoCam {
+            max-width: 320px;
+            min-height: 320px;
+            margin-left: 0px;
+            border: 1px solid #ccc;
+            background: rgb(122, 122, 122);
+            margin: auto;
+        }
+
+        #startBtn {
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: normal;
+            background: transparent;
+        }
+
+        /* Pop up  */
+        .modal {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.4rem;
+            /* width: 340px; */
+            padding: 1rem;
+            /* min-height: 350px; */
+            position: absolute;
+            z-index: 2;
+            top: 20%;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .modal .flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal input {
+            padding: 0.7rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .modal p {
+            font-size: 0.9rem;
+            color: #777;
+            margin: 0.4rem 0 0.2rem;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.4rem;
+            font-weight: 700;
+            background-color: black;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1em;
+        }
+
+        /* .btn-open {
+            position: absolute;
+            bottom: 150px;
+        } */
+
+        .btn-close {
+            transform: translate(10px, -20px);
+            padding: 0.5rem 0.7rem;
+            background: #eee;
+            border-radius: 50%;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+            z-index: 1;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+
+        .custom-file-upload {
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+
+<body>
+<main>
+    <div class="user-info">
+        <h3>Event Name</h3>
+        <p><span class="text-light">10 Jul, 2023</span> at 11:00am - 2:00pm</p>
+        <ul class="list-item">
+            <li><img src="qr_code_icon.svg" alt="QR Code"><span>QR Code</span> <small class="float-end">Wedding</small>
+            </li>
+            <li><img src="Face Recognized_icon.svg" alt="Face Recognized">
+                <!-- <button accept="image/*" capture="camera" id="startBtn" class="btn-open" onclick="openCam()">Face
+                    Recognized</button> -->
+                <form>
+                    <label for="file-upload" class="custom-file-upload">Face Recognized</label>
+                    <input id="file-upload" name='upload_cont_img' type="file" accept="image/*" capture="camera"
+                           style="display:none;">
+                </form>
+                <small class="float-end"><img src="done.svg" alt=""></small>
+            </li>
+            <li><img src="whatsApp_icon.svg" alt="Mobile Number"><input type="tel" placeholder="+91 9000000000"
+                                                                        name="telphone" pattern="[0-9]{10}"
+                                                                        title="Ten digits number" required/></li>
+        </ul>
+        <p class="text-center text-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, illum
+            blanditiis.
+        </p>
+        <a class="btn-user" href="">SEND</a>
+        <p class="text-center">If you want to download app <a href="" class="text-primary">click here</a></p>
+
+        <div class="overlay hidden"></div>
+        <section class="modal hidden">
+            <div class="flex">
+                <h1></h1>
+                <button class="btn-close">⨉</button>
+            </div>
+            <video id="videoCam"></video>
+            <button class="btn">Submit</button>
+        </section>
+    </div>
+</main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script>
+        // openCam Code
+        $('#file-upload').change(function () {
+            var i = $(this).prev('label').clone();
+            var file = $('#file-upload')[0].files[0].name;
+            $(this).prev('label').text(file);
+        });
+
+</script>
+</body>
+
+</html>
